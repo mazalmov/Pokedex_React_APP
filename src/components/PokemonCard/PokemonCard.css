@@ -1,11 +1,11 @@
 
 .pokemon-card-container {
   display: flex;
-  background-color: #f4f4f4;  /* רקע אפור */
+  background-color: #f4f4f4;  
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 80%; /* רוחב מותאם, אפשר לשנות בהתאם */
-  max-width: 800px; /* מקסימום רוחב */
+  width: 80%; 
+  max-width: 800px; 
   margin: 20px auto;
   padding: 20px;
   transition: transform 0.3s ease;
@@ -15,7 +15,7 @@
   /* Left Section */
 
   .pokemon-card-left {
-    flex: 1; /* שליש מהכרטיס */
+    flex: 1; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,28 +56,14 @@
 
   /* Right Section */
 
-  /* .favorite-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-  } */
-
 .favorite-button {
   position: absolute;
-  top: 10px;  /* התאמת המיקום לפי הצורך */
-  right: 10px;  /* התאמת המיקום בתוך גבולות הכרטיס */
+  top: 10px;  
+  right: 10px; 
   background: none;
   border: none;
   cursor: pointer;
 }
-
-
-
-
-
 
 .pokemon-card-right {
   flex: 2; 

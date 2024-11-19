@@ -4,9 +4,6 @@ import HomePage from "./pages/HomePage";
 import PokemonDetails from "./pages/PokemonDetails";
 import Favorites from "./pages/Favorites";
 
-// import styled from 'styled-components';
-
-
 const App: React.FC = () => {
   return (
     <>

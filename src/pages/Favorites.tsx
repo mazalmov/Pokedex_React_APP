@@ -16,7 +16,7 @@ const Favorites: React.FC = () => {
       <Header />
 
       {/* Page heading */}
-      <h1>Your Favorite Pokémon</h1>
+      <h1>Your Favorite Pokémon :</h1>
       <div className="pokemon-list">
         {/* Display each favorite Pokémon */}
         <PokemonList pokemons={favoritePokemons} />
@@ -27,3 +27,4 @@ const Favorites: React.FC = () => {
 };
 
 export default Favorites;
+

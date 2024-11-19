@@ -25,26 +25,3 @@ export const PokemonTypeColor: Record<PokemonType, string> = {
 	fairy:   '#D685AD',
 
 };
-
-// const fireColor = PokemonTypeColor['fire']; // מחזיר '#F08030'
-
-//ENUM:
-// enum PokemonType {
-//     Fire = 'fire',
-//     Water = 'water',
-//     Grass = 'grass',
-//     Electric = 'electric',
-//     Psychic = 'psychic',
-//   }
-  
-//   const pokemonTypeColor: Record<PokemonType, string> = {
-//     [PokemonType.Fire]: '#F08030',
-//     [PokemonType.Water]: '#6890F0',
-//     [PokemonType.Grass]: '#78C850',
-//     [PokemonType.Electric]: '#F8D030',
-//     [PokemonType.Psychic]: '#F85888',
-//   };
-  
-//   // שימוש:
-//   const waterColor = pokemonTypeColor[PokemonType.Water]; // מחזיר '#6890F0'
-  

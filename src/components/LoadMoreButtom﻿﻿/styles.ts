@@ -1,23 +1,3 @@
-// import styled from "styled-components";
-
-
-// export const LoadButtons = styled.button`
-//     display: flex;
-//     margin-top: 80px;
-//     margin-bottom: 80px;
-//     width: 210px;
-//     height: 36px;
-//     top: 1102px;
-//     left: 540px;
-//     gap: 0px;
-//     border-radius: 9px 0px 0px 0px;
-//     border: 1px 0px 0px 0px;
-//     opacity: 0px;
-//     background: #373299;
-//     border: 1px solid #373299
-
-
-// `
 
 import styled from "styled-components";
 

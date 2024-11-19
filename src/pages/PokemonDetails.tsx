@@ -1,8 +1,7 @@
-// //src/pages/Pokemonage.tsx
 
 import Header from "../components/Header/Header";
 import PokemonCard from "../components/PokemonCard/PokemonCard";
-import { Link } from 'react-router-dom'; // React Router Link
+import { Link } from 'react-router-dom';
 
 const PokemonDetails: React.FC = () => {
 

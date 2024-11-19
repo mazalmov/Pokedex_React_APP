@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // ייבוא useNavigate
+import { useNavigate } from 'react-router-dom';
 import './PokemonComponent.css'
 
 interface PokemonHeaderProps {
