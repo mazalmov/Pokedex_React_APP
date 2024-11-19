@@ -1,0 +1,54 @@
+.pokemon-conteiner {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  width: 337px;
+  height: 291px;
+  position: relative; /* הכרחי עבור מיקום אלמנטים פנימיים באופן יחסי */
+  background-color: #f0f0f0; 
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+  text-align: center; 
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.pokemon-id {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  color: black; 
+  font-weight: bold; 
+  padding: 10px; 
+}
+
+@media (max-width: 480px) {
+  .pokemon-id {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+.name-container {
+  position: absolute;
+  bottom: 10px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  color: black; 
+  font-weight: bold;
+  padding: 10px; 
+}
+
+.pokemon-conteiner:hover {
+  transform: scale(1.05); 
+} 
+
+
+.pokemon-image {
+  width: 70%; 
+  height: auto; 
+  object-fit: contain; 
+  margin: 10px 0; 
+}
