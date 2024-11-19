@@ -14,9 +14,9 @@ const DynamicButton: React.FC<ButtonProps> = ({ label, onClick }) => {
   };
 
   return (
-      <button onClick={handleClick}>
-        {label}
-      </button>
+    <button onClick={handleClick}>
+      {label}
+    </button>
   );
 };
 
