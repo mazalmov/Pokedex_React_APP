@@ -5,7 +5,7 @@
   justify-content: center;
   width: 337px;
   height: 291px;
-  position: relative; /* הכרחי עבור מיקום אלמנטים פנימיים באופן יחסי */
+  position: relative; 
   background-color: #f0f0f0; 
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 

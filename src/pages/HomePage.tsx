@@ -73,7 +73,9 @@ const HomePage: React.FC = () => {
       setDisplayedPokemons(allPokemons.slice(0, limit)); // If search is empty, reset displayed pokemons
     } else {
       const filteredPokemons = allPokemons.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+        // pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+        pokemon.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+
       );
       setDisplayedPokemons(filteredPokemons); // Update displayed pokemons with search results
     }
