@@ -31,7 +31,6 @@ export const LoadButtons = styled.button`
     }
 `
 
-
 export const LoadButtonsContainer = styled.div`
     display: flex;
     justify-content: center; 

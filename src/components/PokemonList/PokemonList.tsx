@@ -19,7 +19,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemons }) => {
     <ListContainer>
 
       {pokemons.map((pokemon) => (
-        <PokemonComponent  id={pokemon.id} name={pokemon.name} image={pokemon.image} />
+        <PokemonComponent key={pokemon.id} id={pokemon.id} name={pokemon.name} image={pokemon.image} />
       ))}
 
     </ListContainer>

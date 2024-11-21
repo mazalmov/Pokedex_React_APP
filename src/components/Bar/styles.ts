@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// Wrapper for the search bar and buttons
 export const BarAndButtonsContainer = styled.div`
   display: flex;
   flex-direction: row; 
@@ -21,7 +20,6 @@ export const BarAndButtonsContainer = styled.div`
   }
 `;
 
-// Input field for search
 export const SearchText = styled.input`
   width: 100%;
   height: 40px;
@@ -56,9 +54,8 @@ export const SearchButton = styled.button`
   @media (max-width: 480px) {
     font-size: 12px;
   }
-`
+`;
 
-// Container for displaying search results
 export const SearchResultsContainer = styled.div`
   position: absolute;
   top: 60px;
@@ -75,10 +72,6 @@ export const SearchResultsContainer = styled.div`
   }
 `;
 
-
-
-
-// Individual search result item
 export const SearchResultItem = styled.div`
   padding: 10px;
   cursor: pointer;
@@ -88,10 +81,8 @@ export const SearchResultItem = styled.div`
   }
 `;
 
-// Message for no results or no history
 export const NoResultsMessage = styled.div`
   padding: 10px;
   text-align: center;
   color: #777;
 `;
-

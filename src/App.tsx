@@ -6,19 +6,14 @@ import Favorites from "./pages/Favorites";
 
 const App: React.FC = () => {
   return (
-    <>
+    <BrowserRouter>
+      <Routes>
 
-      {/* <FlexContainer> */}
-      <BrowserRouter>
-        <Routes>
-
-          <Route path="/" element={<HomePage />} />
-          <Route path="/pokemon/:id" element={<PokemonDetails />} />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
-      </BrowserRouter>
-      {/* </FlexContainer> */}
-    </>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pokemon/:id" element={<PokemonDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

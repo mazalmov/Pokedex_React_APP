@@ -126,7 +126,6 @@ const PokemonCard: React.FC = () => {
         </div>
 
       </div>
-      {/* Right side */}
       <div className="pokemon-card-right">
         <button
           className="favorite-button"

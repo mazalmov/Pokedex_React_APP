@@ -9,7 +9,6 @@ const PokemonDetails: React.FC = () => {
     <div>
       <Header />
       <nav className="nav">
-        {/* link to home page*/}
         <Link to="/" className="home-link">Home Page &rarr;</Link>
       </nav>
       <PokemonCard />

@@ -1,6 +1,3 @@
-
-//USE Type:
-//components/pokemonTypeColor.ts
 type PokemonType = 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'normal' | 'ice' | 'fighting' | 'poison' | 'ground' | 'flying' | 'bug' | 'rock' | 'ghost' | 'dragon' | 'dark' | 'steel'  | 'fairy'     ;
  
 export const PokemonTypeColor: Record<PokemonType, string> = {

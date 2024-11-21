@@ -12,8 +12,6 @@
   overflow-y: auto; 
 }
 
-  /* Left Section */
-
   .pokemon-card-left {
     flex: 1; 
     display: flex;
@@ -53,8 +51,6 @@
   cursor: pointer; 
   transition: background-color 0.3s, border 0.3s; 
 }
-
-  /* Right Section */
 
 .favorite-button {
   position: absolute;

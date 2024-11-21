@@ -17,7 +17,7 @@ const PokemonComponent: React.FC<PokemonHeaderProps> = ({ id, name, image }) => 
   };
 
   return (
-    <div className="pokemon-conteiner" onClick={handleClick}>
+    <div className="pokemon-container" onClick={handleClick}>
       <div className="pokemon-id">#{id.toString().padStart(3, '0')}</div>
       <img src={image} alt={name} className="pokemon-image" />
       <div className="name-container">{name} </div>
