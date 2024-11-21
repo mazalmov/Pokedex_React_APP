@@ -20,7 +20,6 @@ export const BarAndButtonsContainer = styled.div`
   }
 `;
 
-// Input field for search
 export const SearchText = styled.input`
   width: 100%;
   height: 40px;

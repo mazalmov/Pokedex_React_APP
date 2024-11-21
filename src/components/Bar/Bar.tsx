@@ -116,4 +116,3 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
 };
 
 export default Bar;
-
