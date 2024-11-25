@@ -107,14 +107,15 @@ const PokemonCard: React.FC = () => {
   if (!pokemon) {
     return <div>Error loading Pokémon details.</div>;
   }
-  const navigateToLocation = () => {
 
+  const navigateToLocation = () => {
     if (pokemon) {
       navigate('/map', {
         state: {
           name: pokemon.name,
         },
       });
+
     }
   };
 
