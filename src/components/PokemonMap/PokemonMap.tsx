@@ -33,7 +33,8 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
     console.log("VITE_MAP_ID", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
-            <APIProvider apiKey={"AIzaSyB87HTtpKSA_ZEx6Tj7mCdlHlnnZ25zMTI"}>
+            {/* <APIProvider apiKey={"AIzaSyB87HTtpKSA_ZEx6Tj7mCdlHlnnZ25zMTI"}> */}
+            <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
                 {/* <Map center={destination} zoom={14} fullscreenControl={false}> */}
                 {/* <Map center={destination} zoom={14} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}> */}
                 <Map center={destination} zoom={14} mapId={"4b242aacc9c9d46d"} fullscreenControl={false}>
