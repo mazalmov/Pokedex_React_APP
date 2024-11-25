@@ -21,7 +21,7 @@ const MapPage: React.FC = () => {
 
         <p>Latitude: {pokemonLocation.lat}</p>
         <p>Longitude: {pokemonLocation.lng}</p>
-        {/* <PokemonMap name ={name} location={pokemonLocation} /> */}
+        {/* <PokemonMap name={name} location={pokemonLocation} /> */}
 
       </div>
     </div>

@@ -21,6 +21,7 @@ interface Location {
 interface PokemonMapProps {
     name: string;
     location: Location;
+
 };
 
 const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
@@ -30,14 +31,14 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
     const origin = location;
     const [openCenterPosition, setOpenCenterPosition] = useState(false);
     const [openOriginPosition, setOpenOriginPosition] = useState(false);
-    console.log("VITE_MAP_ID", import.meta.env.VITE_MAP_ID)
+    console.log("VITE_MAP_IDghjg", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
             {/* <APIProvider apiKey={"AIzaSyB87HTtpKSA_ZEx6Tj7mCdlHlnnZ25zMTI"}> */}
             <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
                 {/* <Map center={destination} zoom={14} fullscreenControl={false}> */}
-                {/* <Map center={destination} zoom={14} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}> */}
-                <Map center={destination} zoom={14} mapId={"4b242aacc9c9d46d"} fullscreenControl={false}>
+                <Map center={destination} zoom={14} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
+                    {/* <Map center={destination} zoom={14} mapId={"4b242aacc9c9d46d"} fullscreenControl={false}> */}
 
                     <AdvancedMarker position={destination} onClick={() => setOpenCenterPosition(true)}>
                         <Pin background={"grey"} borderColor={"green"} glyphColor={"red"} />
