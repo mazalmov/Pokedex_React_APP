@@ -29,23 +29,21 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
 
     const destination = { lat: 32.0600, lng: 34.7690 }; // Allenby 61
     const origin = location;
+
     const [openCenterPosition, setOpenCenterPosition] = useState(false);
     const [openOriginPosition, setOpenOriginPosition] = useState(false);
     console.log("VITE_MAP_IDghjg", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
-            {/* <APIProvider apiKey={"AIzaSyB87HTtpKSA_ZEx6Tj7mCdlHlnnZ25zMTI"}> */}
             <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
-                {/* <Map center={destination} zoom={14} fullscreenControl={false}> */}
-                <Map center={destination} zoom={14} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
-                    {/* <Map center={destination} zoom={14} mapId={"4b242aacc9c9d46d"} fullscreenControl={false}> */}
+                <Map center={destination} zoom={13} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
 
                     <AdvancedMarker position={destination} onClick={() => setOpenCenterPosition(true)}>
                         <Pin background={"grey"} borderColor={"green"} glyphColor={"red"} />
                     </AdvancedMarker>
                     {openCenterPosition && (
                         <InfoWindow position={destination} onCloseClick={() => setOpenCenterPosition(false)}>
-                            <p>I am in Allenby 61</p>
+                            <p>Office - Allenby 61</p>
                         </InfoWindow>
                     )}
 
@@ -87,8 +85,24 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
         setDirectionsRenderer(renderer);
     }, [routesLibrary, map]);
 
+    // useEffect(() => {
+    //     if (!directionsService || !directionsRenderer || !origin || !destination) return;
+
+    //     directionsService
+    //         .route({
+    //             origin: origin,
+    //             destination: destination,
+    //             travelMode: google.maps.TravelMode.DRIVING,
+    //             provideRouteAlternatives: true,
+    //         })
+    //         .then((response) => {
+    //             directionsRenderer.setDirections(response);
+    //             setRoutes(response.routes);
+    //         })
+    //         .catch((error) => console.error("Directions API error:", error));
+    // }, [directionsService, directionsRenderer, origin, destination]);
     useEffect(() => {
-        if (!directionsService || !directionsRenderer || !origin || !destination) return;
+        if (!directionsService || !directionsRenderer) return;
 
         directionsService
             .route({
@@ -102,8 +116,14 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
                 setRoutes(response.routes);
             })
             .catch((error) => console.error("Directions API error:", error));
-    }, [directionsService, directionsRenderer, origin, destination]);
+    }, [directionsService, directionsRenderer]);
 
+
+    useEffect(() => {
+        if (!routeIndex || !directionsRenderer) return;
+        directionsRenderer.setRouteIndex(routeIndex)
+
+    }, [routeIndex, directionsRenderer]);
 
 
     if (!leg) return null;

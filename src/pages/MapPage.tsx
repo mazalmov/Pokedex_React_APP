@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-// import PokemonMap from '../components/PokemonMap/PokemonMap';
+import PokemonMap from '../components/PokemonMap/PokemonMap';
 import Header from '../components/Header/Header';
 import generateRandomLocation from './const'
 
@@ -21,7 +21,7 @@ const MapPage: React.FC = () => {
 
         <p>Latitude: {pokemonLocation.lat}</p>
         <p>Longitude: {pokemonLocation.lng}</p>
-        {/* <PokemonMap name={name} location={pokemonLocation} /> */}
+        <PokemonMap name={name} location={pokemonLocation} />
 
       </div>
     </div>
