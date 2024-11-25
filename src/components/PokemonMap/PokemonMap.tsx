@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MapContainer } from "./styles";
+import { MapContainer, MapWrapper } from "./styles";
 import {
     APIProvider,
     Map,
@@ -35,29 +35,32 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
     console.log("VITE_MAP_IDghjg", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
-            <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
-                <Map center={destination} zoom={13} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
 
-                    <AdvancedMarker position={destination} onClick={() => setOpenCenterPosition(true)}>
-                        <Pin background={"grey"} borderColor={"green"} glyphColor={"red"} />
-                    </AdvancedMarker>
-                    {openCenterPosition && (
-                        <InfoWindow position={destination} onCloseClick={() => setOpenCenterPosition(false)}>
-                            <p>Office - Allenby 61</p>
-                        </InfoWindow>
-                    )}
+            <MapWrapper>
+                <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
+                    <Map center={destination} zoom={13} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
 
-                    <AdvancedMarker position={origin} onClick={() => setOpenOriginPosition(true)}>
-                        <Pin background={"black"} borderColor={"blue"} glyphColor={"green"} />
-                    </AdvancedMarker>
-                    {openOriginPosition && (
-                        <InfoWindow position={origin} onCloseClick={() => setOpenOriginPosition(false)}>
-                            <p>I am {name}, help me find the way to the office</p>
-                        </InfoWindow>
-                    )}
-                    <Directions origin={origin} destination={destination} />
-                </Map>
-            </APIProvider>
+                        <AdvancedMarker position={destination} onClick={() => setOpenCenterPosition(true)}>
+                            <Pin background={"grey"} borderColor={"green"} glyphColor={"red"} />
+                        </AdvancedMarker>
+                        {openCenterPosition && (
+                            <InfoWindow position={destination} onCloseClick={() => setOpenCenterPosition(false)}>
+                                <p>Office - Allenby 61</p>
+                            </InfoWindow>
+                        )}
+
+                        <AdvancedMarker position={origin} onClick={() => setOpenOriginPosition(true)}>
+                            <Pin background={"black"} borderColor={"blue"} glyphColor={"green"} />
+                        </AdvancedMarker>
+                        {openOriginPosition && (
+                            <InfoWindow position={origin} onCloseClick={() => setOpenOriginPosition(false)}>
+                                <p>I am {name}, help me find the way to the office</p>
+                            </InfoWindow>
+                        )}
+                        <Directions origin={origin} destination={destination} />
+                    </Map>
+                </APIProvider>
+            </MapWrapper>
         </MapContainer>
 
 
@@ -85,22 +88,6 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
         setDirectionsRenderer(renderer);
     }, [routesLibrary, map]);
 
-    // useEffect(() => {
-    //     if (!directionsService || !directionsRenderer || !origin || !destination) return;
-
-    //     directionsService
-    //         .route({
-    //             origin: origin,
-    //             destination: destination,
-    //             travelMode: google.maps.TravelMode.DRIVING,
-    //             provideRouteAlternatives: true,
-    //         })
-    //         .then((response) => {
-    //             directionsRenderer.setDirections(response);
-    //             setRoutes(response.routes);
-    //         })
-    //         .catch((error) => console.error("Directions API error:", error));
-    // }, [directionsService, directionsRenderer, origin, destination]);
     useEffect(() => {
         if (!directionsService || !directionsRenderer) return;
 
