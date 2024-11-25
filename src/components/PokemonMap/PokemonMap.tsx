@@ -2,7 +2,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MapContainer, MapWrapper } from "./styles";
+import {
+    MapContainer,
+    MapWrapper,
+    DirectionsContainer,
+    DirectionsHeading,
+    DirectionsParagraph,
+    RouteButton,
+    RoutesList,
+    DirectionsWrapper,
+} from "./styles";
 import {
     APIProvider,
     Map,
@@ -35,7 +44,7 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
     console.log("VITE_MAP_IDghjg", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
-
+            <h2> {name} Find the way to the office</h2>
             <MapWrapper>
                 <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
                     <Map center={destination} zoom={13} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
@@ -57,7 +66,10 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
                                 <p>I am {name}, help me find the way to the office</p>
                             </InfoWindow>
                         )}
-                        <Directions origin={origin} destination={destination} />
+                        <DirectionsWrapper>
+                            <Directions origin={origin} destination={destination} />
+                        </DirectionsWrapper>
+
                     </Map>
                 </APIProvider>
             </MapWrapper>
@@ -89,7 +101,7 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
     }, [routesLibrary, map]);
 
     useEffect(() => {
-        if (!directionsService || !directionsRenderer) return;
+        if (!directionsService || !directionsRenderer || !origin || !destination) return;
 
         directionsService
             .route({
@@ -103,7 +115,7 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
                 setRoutes(response.routes);
             })
             .catch((error) => console.error("Directions API error:", error));
-    }, [directionsService, directionsRenderer]);
+    }, [directionsService, directionsRenderer, origin, destination]);
 
 
     useEffect(() => {
@@ -115,26 +127,45 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
 
     if (!leg) return null;
     return (
-        <div className="directions">
-            <h2>{selected.summary}</h2>
-            <p>
-                {leg.start_address.split(",")[0]} to {leg.end_address.split(",")[0]}
-            </p>
-            <p> Distance: {leg.distance?.text}</p>
-            <p> Duration:{leg.duration?.text}</p>
-            <h2>Other Routes</h2>
-            <ul>
+        // <div className="directions">
+        //     <h2>{selected.summary}</h2>
+        //     <p>
+        //         {leg.start_address.split(",")[0]} to {leg.end_address.split(",")[0]}
+        //     </p>
+        //     <p> Distance: {leg.distance?.text}</p>
+        //     <p> Duration:{leg.duration?.text}</p>
+        //     <h2>Other Routes</h2>
+        //     <ul>
+        //         {routes.map((route, index) => (
+        //             <li key={route.summary}>
+        //                 <button onClick={() => setRouteIndex(index)}>
+        //                     {route.summary}
+        //                 </button>
+        //             </li>
+        //         ))}
+        //     </ul>
+
+
+        // </div>
+        <DirectionsContainer>
+            <DirectionsHeading>{selected.summary}</DirectionsHeading>
+            <DirectionsParagraph>
+                <p>{leg.start_address.split(",")[0]} to {leg.end_address.split(",")[0]}</p>
+
+            </DirectionsParagraph>
+            <DirectionsParagraph>Distance: {leg.distance?.text}</DirectionsParagraph>
+            <DirectionsParagraph>Duration: {leg.duration?.text}</DirectionsParagraph>
+            <DirectionsHeading>Other Routes</DirectionsHeading>
+            <RoutesList>
                 {routes.map((route, index) => (
-                    <li key={route.summary}>
-                        <button onClick={() => setRouteIndex(index)}>
+                    <li key={route.summary} style={{ marginBottom: "10px" }}>
+                        <RouteButton onClick={() => setRouteIndex(index)}>
                             {route.summary}
-                        </button>
+                        </RouteButton>
                     </li>
                 ))}
-            </ul>
-
-
-        </div>
+            </RoutesList>
+        </DirectionsContainer>
     )
 };
 
