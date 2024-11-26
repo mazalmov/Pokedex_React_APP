@@ -16,7 +16,6 @@ export const LogoAndButtonsContainer = styled.div`
     color: white;
 `
 
-
 export const ButtonsContainer = styled.div`
   display: flex;
   gap: 15px;

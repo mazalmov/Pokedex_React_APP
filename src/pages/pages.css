@@ -1,9 +1,5 @@
-.pokemonNameTitle h1{
-    margin-bottom: 50px;
-    font-size: 20px;
-    color: #020166;
-    display: flex;
-}
+
 h1{
     color: #020166;
+    display: flex
 }
