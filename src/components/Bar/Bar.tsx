@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   BarAndButtonsContainer,
   SearchText,
@@ -18,6 +18,7 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
   const [historyVisible, setHistoryVisible] = useState<boolean>(false);
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [filteredPokemons, setFilteredPokemons] = useState<any[]>([]);
+  const [debounceTimeout, setDebounceTimeout] = useState<number | null>(null);
 
   const addSearchToHistory = (term: string) => {
     setSearchHistory((prevHistory) => {
@@ -41,21 +42,32 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
     setFilteredPokemons(filtered);
   };
 
-  useEffect(() => {
-    getFilteredPokemons(searchTerm);
-  }, [searchTerm]);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
-    setHistoryVisible(value.trim() === '');
+
+    if (value.trim() === '') {
+      setHistoryVisible(true);
+    } else {
+      setHistoryVisible(false);
+    }
+
+    if (debounceTimeout) window.clearTimeout(debounceTimeout);
+
+    const timeout = window.setTimeout(() => {
+      getFilteredPokemons(value);
+    }, 2000);
+    setDebounceTimeout(timeout);
   };
 
   const handleSearchClick = () => {
     if (searchTerm.trim() === '') return;
     onSearchClick(searchTerm);
     addSearchToHistory(searchTerm);
-    setHistoryVisible(false);
+
+
+    setHistoryVisible(true);
+    setFilteredPokemons([]);
   };
 
   const handleSelectSearchTerm = (term: string) => {
@@ -109,7 +121,7 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
         placeholder="Search for a Pokémon..."
       />
       {historyVisible && searchTerm === '' && renderSearchHistory()}
-      {searchTerm !== '' && renderFilteredPokemons()}
+      {searchTerm !== '' && !historyVisible && renderFilteredPokemons()}
       <SearchButton onClick={handleSearchClick}>Search</SearchButton>
     </BarAndButtonsContainer>
   );

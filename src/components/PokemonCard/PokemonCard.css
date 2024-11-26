@@ -110,11 +110,32 @@
 
 }
 
+.location-button {
+  width: 10%;
+  height: 100%;
+  border: none; 
+  background: none; 
+  cursor: pointer;
 
- 
-  
+}
 
+.location-button:hover {
+  filter: brightness(0) saturate(100%) invert(26%) sepia(57%) saturate(2889%) hue-rotate(210deg) brightness(101%) contrast(97%);
   
+}
+
+.location_icon {
+  width: 100%; 
+  height: 100%;
+}
+
+
+
+.icon-button-container {
+  display: flex;
+  background-color: #f4f4f4;
+  justify-content: flex-end;
+}
 
   
   
