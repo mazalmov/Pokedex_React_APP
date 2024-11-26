@@ -5,3 +5,4 @@ const generateRandomLocation = () => {
   };
   
   export default generateRandomLocation;
+

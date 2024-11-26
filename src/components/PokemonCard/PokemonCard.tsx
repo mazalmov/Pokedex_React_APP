@@ -1,12 +1,10 @@
-// src/components/PokemonCard/PokemonCard.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { POKE_API_URL } from '../../services/apiService';
 import PokemonComponent from '../PokemonComponent/PokemonComponent'
 import "./PokemonCard.css";
-// Import the images for heart icons
-import heartOutline from '../../assets/nofavorite.png'; // Heart outline (empty)
-import heartFilled from '../../assets/favorit.png'; // Heart filled (red)
+import heartOutline from '../../assets/nofavorite.png'; // icon-Heart (empty)
+import heartFilled from '../../assets/favorit.png'; // icon-Heart filled (red)
 import { PokemonTypeColor } from '../PokemonTypeColor';
 import Location_Icon from '../../assets/location.png';
 

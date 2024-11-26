@@ -16,9 +16,13 @@ export const LogoAndButtonsContainer = styled.div`
     color: white;
 `
 
+
 export const ButtonsContainer = styled.div`
-    display: flex;
-`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 100%; 
+`;
 export const LogoContainer = styled.div`
     display: flex;
     width: 150px;

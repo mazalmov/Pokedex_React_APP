@@ -18,26 +18,36 @@ export const MapContainer = styled.div`
         height: 90vh; 
     }
 `;
+
 export const MapWrapper = styled.div`
-    display: flex;
-    position: absolute;
-    width: 90%;
-    height: 80%; 
-    border-radius: 15px;
-    overflow: hidden; 
-    border: 2px solid #ccc;
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-    background-color: #f9f9f9;
+  position: relative;
+  width: 90%;
+  height: 80%;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  margin-bottom: 20px; 
 `;
 
 export const DirectionsContainer = styled.div`
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 500px; 
+  max-height: 400px; 
+  overflow: auto; 
+  width: 100%; 
+  height: 100%; 
+  box-sizing: border-box; 
 
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  resize: both;
+  overflow: auto; 
 `;
+
 
 export const DirectionsHeading = styled.h2`
     font-size: 1.4rem;
@@ -45,23 +55,13 @@ export const DirectionsHeading = styled.h2`
     margin-bottom: 10px;
 `;
 
-export const DirectionsParagraph = styled.p`
+export const DirectionsParagraph = styled.div`
     font-size: 1rem;
     color: #555;
 `;
 
 export const RouteButton = styled.button`
-    /* background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    margin-top: 10px;
-    cursor: pointer;
 
-    &:hover {
-        background-color: #0056b3;
-    } */
     background-color: #28a745;
     color: white;
     border: none;
@@ -81,6 +81,8 @@ export const RoutesList = styled.ul`
     padding-left: 20px;
     list-style-type: none;
     margin: 0;
+    margin: 20px 0 0 0;
+    
 `;
 export const DirectionsWrapper = styled.div`
     position: fixed;

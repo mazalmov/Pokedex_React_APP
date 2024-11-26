@@ -22,6 +22,7 @@ import {
     useMap,
 } from "@vis.gl/react-google-maps";
 
+
 interface Location {
     lat: number;
     lng: number;
@@ -44,7 +45,6 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
     console.log("VITE_MAP_IDghjg", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
-            <h2> {name} Find the way to the office</h2>
             <MapWrapper>
                 <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
                     <Map center={destination} zoom={13} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
@@ -127,26 +127,7 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
 
     if (!leg) return null;
     return (
-        // <div className="directions">
-        //     <h2>{selected.summary}</h2>
-        //     <p>
-        //         {leg.start_address.split(",")[0]} to {leg.end_address.split(",")[0]}
-        //     </p>
-        //     <p> Distance: {leg.distance?.text}</p>
-        //     <p> Duration:{leg.duration?.text}</p>
-        //     <h2>Other Routes</h2>
-        //     <ul>
-        //         {routes.map((route, index) => (
-        //             <li key={route.summary}>
-        //                 <button onClick={() => setRouteIndex(index)}>
-        //                     {route.summary}
-        //                 </button>
-        //             </li>
-        //         ))}
-        //     </ul>
 
-
-        // </div>
         <DirectionsContainer>
             <DirectionsHeading>{selected.summary}</DirectionsHeading>
             <DirectionsParagraph>
