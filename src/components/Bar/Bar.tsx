@@ -45,7 +45,13 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
-    setHistoryVisible(value.trim() === '');
+
+
+    if (value.trim() === '') {
+      setHistoryVisible(true);
+    } else {
+      setHistoryVisible(false);
+    }
 
     if (debounceTimeout) window.clearTimeout(debounceTimeout);
     const timeout = window.setTimeout(() => {
@@ -58,7 +64,9 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
     if (searchTerm.trim() === '') return;
     onSearchClick(searchTerm);
     addSearchToHistory(searchTerm);
-    setHistoryVisible(false);
+
+    setHistoryVisible(true);
+    setFilteredPokemons([]);
   };
 
   const handleSelectSearchTerm = (term: string) => {
@@ -111,8 +119,8 @@ const Bar: React.FC<BarProps> = ({ onSearchClick, allPokemons }) => {
         onFocus={() => setHistoryVisible(true)}
         placeholder="Search for a Pokémon..."
       />
-      {historyVisible && searchTerm === '' && renderSearchHistory()}
-      {searchTerm !== '' && renderFilteredPokemons()}
+      {historyVisible && renderSearchHistory()}
+      {searchTerm !== '' && !historyVisible && renderFilteredPokemons()}
       <SearchButton onClick={handleSearchClick}>Search</SearchButton>
     </BarAndButtonsContainer>
   );
