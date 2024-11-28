@@ -6,7 +6,6 @@ import './pages.css';
 const Favorites: React.FC = () => {
   const favoritePokemons = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-  // If there are no favorites, display a message
   if (favoritePokemons.length === 0) {
     return <><Header /> <div>No favorite Pokémon added yet.</div> </>;
   }
