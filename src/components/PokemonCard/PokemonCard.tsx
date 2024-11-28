@@ -1,13 +1,12 @@
-// src/components/PokemonCard/PokemonCard.tsx
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { POKE_API_URL } from '../../services/apiService';
 import PokemonComponent from '../PokemonComponent/PokemonComponent'
 import "./PokemonCard.css";
-// Import the images for heart icons
-import heartOutline from '../../assets/nofavorite.png'; // Heart outline (empty)
-import heartFilled from '../../assets/favorit.png'; // Heart filled (red)
+import heartOutline from '../../assets/nofavorite.png'; // icon-Heart (empty)
+import heartFilled from '../../assets/favorit.png'; // icon-Heart filled (red)
 import { PokemonTypeColor } from '../PokemonTypeColor';
+import Location_Icon from '../../assets/location.png';
 
 interface Stat {
   base_stat: number;
@@ -38,6 +37,7 @@ const PokemonCard: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -106,6 +106,17 @@ const PokemonCard: React.FC = () => {
     return <div>Error loading Pokémon details.</div>;
   }
 
+  const navigateToLocation = () => {
+    if (pokemon) {
+      navigate('/map', {
+        state: {
+          name: pokemon.name,
+        },
+      });
+
+    }
+  };
+
   return (
     <div className="pokemon-card-container">
       {/* Left side */}
@@ -150,6 +161,15 @@ const PokemonCard: React.FC = () => {
               <span className="stat-value">{stat.base_stat}</span>
             </div>
           ))}
+        </div>
+        <div className="icon-button-container" >
+          <button className="location-button" onClick={navigateToLocation}>
+            <img
+              src={Location_Icon}
+              alt={'location-icon'}
+              className="location_icon"
+            />
+          </button>
         </div>
       </div>
     </div>
