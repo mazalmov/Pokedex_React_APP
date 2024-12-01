@@ -42,13 +42,11 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
 
     const [openCenterPosition, setOpenCenterPosition] = useState(false);
     const [openOriginPosition, setOpenOriginPosition] = useState(false);
-    console.log("VITE_MAP_IDghjg", import.meta.env.VITE_MAP_ID)
     return (
         <MapContainer>
             <MapWrapper>
                 <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
                     <Map center={destination} zoom={13} mapId={import.meta.env.VITE_MAP_ID} fullscreenControl={false}>
-
                         <AdvancedMarker position={destination} onClick={() => setOpenCenterPosition(true)}>
                             <Pin background={"grey"} borderColor={"green"} glyphColor={"red"} />
                         </AdvancedMarker>
@@ -75,11 +73,10 @@ const PokemonMap: React.FC<PokemonMapProps> = ({ name, location }) => {
             </MapWrapper>
         </MapContainer>
 
-
-
     );
 };
 export default PokemonMap;
+
 
 function Directions({ origin, destination }: { origin: Location; destination: Location }) {
     const map = useMap();

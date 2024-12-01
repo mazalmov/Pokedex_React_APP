@@ -21,15 +21,15 @@ export const MapContainer = styled.div`
 
 export const MapWrapper = styled.div`
   position: relative;
-  width: 90%;
-  height: 80%;
+  width: 100%; 
+  height: 100%; 
   border-radius: 15px;
   overflow: hidden;
+  background-color: #f9f9f9;
   border: 2px solid #ccc;
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9;
-  margin-bottom: 20px; 
 `;
+
 
 export const DirectionsContainer = styled.div`
   padding: 15px;
@@ -60,14 +60,17 @@ export const DirectionsParagraph = styled.div`
     color: #555;
 `;
 
+
 export const RouteButton = styled.button`
 
     background-color: #28a745;
     color: white;
+    width: 100%;
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
     margin-top: 15px;
+    margin: 0px 0;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
@@ -84,16 +87,17 @@ export const RoutesList = styled.ul`
     margin: 20px 0 0 0;
     
 `;
-export const DirectionsWrapper = styled.div`
-    position: fixed;
-    top: 10px;
-    left: 100%;
-    transform: translateX(-50%);
-    z-index: 10; 
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 70%;
-`;
 
+export const DirectionsWrapper = styled.div`
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  z-index: 10; 
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+  padding: 15px; 
+  max-width: 800px; 
+  max-height: 600px; 
+  overflow-y: auto; 
+  box-sizing: border-box; 
+`;
