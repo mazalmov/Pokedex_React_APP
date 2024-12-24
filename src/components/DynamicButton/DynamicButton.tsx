@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonStyled } from './styles';
 
 interface ButtonProps {
   onClick: () => void;
@@ -14,9 +15,11 @@ const DynamicButton: React.FC<ButtonProps> = ({ label, onClick }) => {
   };
 
   return (
-    <button onClick={handleClick}>
+
+    <ButtonStyled onClick={handleClick}>
       {label}
-    </button>
+    </ButtonStyled>
+
   );
 };
 

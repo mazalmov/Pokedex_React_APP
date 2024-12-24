@@ -1,12 +1,10 @@
-// src/components/PokemonCard/PokemonCard.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { POKE_API_URL } from '../../services/apiService';
 import PokemonComponent from '../PokemonComponent/PokemonComponent'
 import "./PokemonCard.css";
-// Import the images for heart icons
-import heartOutline from '../../assets/nofavorite.png'; // Heart outline (empty)
-import heartFilled from '../../assets/favorit.png'; // Heart filled (red)
+import heartOutline from '../../assets/nofavorite.png';
+import heartFilled from '../../assets/favorit.png';
 import { PokemonTypeColor } from '../PokemonTypeColor';
 import Location_Icon from '../../assets/location.png';
 
@@ -121,7 +119,7 @@ const PokemonCard: React.FC = () => {
 
   return (
     <div className="pokemon-card-container">
-      {/* Left side */}
+
       <div className="pokemon-card-left">
 
         <PokemonComponent id={pokemon.id} name={pokemon.name} image={pokemon.image} />
