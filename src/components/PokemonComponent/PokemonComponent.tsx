@@ -13,7 +13,7 @@ const PokemonComponent: React.FC<PokemonHeaderProps> = ({ id, name, image }) => 
 
 
   const handleClick = () => {
-    navigate(`pokemon/${id}`);
+    navigate(`/pokemon/${id}`);
   };
 
   return (
