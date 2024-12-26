@@ -116,7 +116,7 @@ function Directions({ origin, destination }: { origin: Location; destination: Lo
 
 
     useEffect(() => {
-        if (!routeIndex || !directionsRenderer) return;
+        if (routeIndex === null || !directionsRenderer) return;
         directionsRenderer.setRouteIndex(routeIndex)
 
     }, [routeIndex, directionsRenderer]);
